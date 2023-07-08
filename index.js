@@ -24,7 +24,11 @@ const URI = process.env.MONGODB_URL;
 
 app.use(bodyParser.json({ limit: "30mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "30mb" })); // limit from front-end data 30MB
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 //Call API
 app.use("/inforCompany", inforCompanyRouter);
